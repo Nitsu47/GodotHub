@@ -1,0 +1,54 @@
+.developer-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  
+.developer-header {
+  display: flex;
+  align-items: center;
+}
+
+.developer-logo {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+}
+
+.developer-content {
+  display: flex;
+  gap: 20px;
+}
+
+.developer-sidebar, .similar-games {
+  width: 250px;
+}
+
+.developer-main {
+  flex: 1;
+}
+
+.profile-nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.profile-nav li {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.game-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+}
+
+.social-links li {
+  margin-bottom: 10px;
+}
