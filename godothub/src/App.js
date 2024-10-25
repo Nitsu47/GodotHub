@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Store from './pages/store';
 import DeveloperProfile from './pages/developer_profile';
+import UploadGame from './components/Upload_game';
 
 function App() {
   const games = [
@@ -32,6 +33,7 @@ function App() {
         <Route path="/" element={<Store games={games} />} />
         <Route path="/store" element={<Store games={games} />} />
         <Route path="/developer/:id" element={<DeveloperProfile developer={developer} />} />
+        <Route path="/upload" element={<UploadGame />} />
       </Routes>
     </Router>
   );
