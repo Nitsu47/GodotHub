@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { db, storage } from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import "../styles/upload_game.css";
 
 const UploadGame = () => {
   const [gameData, setGameData] = useState({
@@ -12,6 +13,7 @@ const UploadGame = () => {
   });
 
   const [uploadProgress, setUploadProgress] = useState(0);
+  const [isUploading, setIsUploading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,9 +37,15 @@ const UploadGame = () => {
       alert("Please choose a game file to upload");
       return;
     }
+    
+    if (gameData.price <= 0) {
+      alert("Price must be a positive number");
+      return;
+    }
+
+    setIsUploading(true);
 
     try {
-      // Subir archivo a Firebase Storage
       const storageRef = ref(storage, `games/${gameData.gameFile.name}`);
       const uploadTask = uploadBytesResumable(storageRef, gameData.gameFile);
 
@@ -49,25 +57,28 @@ const UploadGame = () => {
         },
         (error) => {
           console.error("Error uploading file:", error);
+          setIsUploading(false);
         },
         async () => {
-          //Obtener URL de descarga del archivo subido
           const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
 
-          //Guardar datos del juego en Firestore
           await addDoc(collection(db, 'games'), {
             name: gameData.name,
             description: gameData.description,
-            price: gameData.price,
+            price: parseFloat(gameData.price),
             gameFileURL: downloadURL,
             createdAt: new Date()
           });
 
           alert("Game uploaded successfully!");
+          setGameData({ name: '', description: '', price: '', gameFile: null });
+          setUploadProgress(0);
+          setIsUploading(false);
         }
       );
     } catch (error) {
       console.error("Error uploading game:", error);
+      setIsUploading(false);
     }
   };
 
@@ -101,6 +112,8 @@ const UploadGame = () => {
             name="price"
             value={gameData.price}
             onChange={handleChange}
+            min="0.01"
+            step="0.01"
             required
           />
         </div>
@@ -109,13 +122,14 @@ const UploadGame = () => {
           <input
             type="file"
             onChange={handleFileChange}
-            accept=".zip,.rar,.7z" // Tipo de archivo que quieres aceptar
+            accept=".zip,.rar,.7z"
             required
           />
         </div>
-        <button type="submit">Upload Game</button>
-        {uploadProgress > 0 && <p>Upload Progress: {uploadProgress}%</p>}
+        <button type="submit" disabled={isUploading}>Upload Game</button>
+        {uploadProgress > 0 && <p>Upload Progress: {uploadProgress.toFixed(2)}%</p>}
       </form>
+      {isUploading && <p>Uploading...</p>}
     </div>
   );
 };
