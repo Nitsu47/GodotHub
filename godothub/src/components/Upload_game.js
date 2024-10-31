@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { db, storage } from '../firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import axios from 'axios';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import "../styles/upload_game.css";
 
 const UploadGame = () => {
   const [gameData, setGameData] = useState({
+    id: Date.now().toString(16),
     name: '',
     description: '',
     price: '',
-    gameFile: null
+    gameFile: null,
+    coverImage: null
   });
 
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -30,15 +32,28 @@ const UploadGame = () => {
     }));
   };
 
+  const handleCoverImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
+      setGameData((prevData) => ({
+        ...prevData,
+        coverImage: file
+      }));
+    } else {
+      alert("Please select a valid image file (JPG or PNG).");
+      e.target.value = null;
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!gameData.gameFile) {
-      alert("Please choose a game file to upload");
+    if (!gameData.gameFile || !gameData.coverImage) {
+      alert("Please choose both a game file and a cover image.");
       return;
     }
-    
-    if (gameData.price <= 0) {
+
+    if (gameData.price < 0) {
       alert("Price must be a positive number");
       return;
     }
@@ -46,34 +61,63 @@ const UploadGame = () => {
     setIsUploading(true);
 
     try {
-      const storageRef = ref(storage, `games/${gameData.gameFile.name}`);
-      const uploadTask = uploadBytesResumable(storageRef, gameData.gameFile);
+      // Cover Image
+      const coverImageRef = ref(storage, `coverImages/${gameData.coverImage.name}`);
+      const coverImageUploadTask = uploadBytesResumable(coverImageRef, gameData.coverImage);
 
-      uploadTask.on(
+      coverImageUploadTask.on(
         'state_changed',
         (snapshot) => {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           setUploadProgress(progress);
         },
         (error) => {
-          console.error("Error uploading file:", error);
+          console.error("Error uploading cover image:", error);
           setIsUploading(false);
         },
         async () => {
-          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+          const coverImageUrl = await getDownloadURL(coverImageUploadTask.snapshot.ref);
 
-          await addDoc(collection(db, 'games'), {
-            name: gameData.name,
-            description: gameData.description,
-            price: parseFloat(gameData.price),
-            gameFileURL: downloadURL,
-            createdAt: new Date()
-          });
+          // Game file
+          const gameFileRef = ref(storage, `games/${gameData.gameFile.name}`);
+          const gameFileUploadTask = uploadBytesResumable(gameFileRef, gameData.gameFile);
 
-          alert("Game uploaded successfully!");
-          setGameData({ name: '', description: '', price: '', gameFile: null });
-          setUploadProgress(0);
-          setIsUploading(false);
+          gameFileUploadTask.on(
+            'state_changed',
+            (snapshot) => {
+              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              setUploadProgress(progress);
+            },
+            (error) => {
+              console.error("Error uploading game file:", error);
+              setIsUploading(false);
+            },
+            async () => {
+              const gameFileURL = await getDownloadURL(gameFileUploadTask.snapshot.ref);
+
+              const newGame = {
+                name: gameData.name,
+                description: gameData.description,
+                price: parseFloat(gameData.price),
+                gameFileURL,
+                coverImageUrl
+              };
+
+              // Upload Game in the server
+              try {
+                const response = await axios.post('http://localhost:3000/games', newGame);
+                console.log("Upload successful, response:", response.data);
+
+                alert("Game uploaded successfully!");
+                setGameData({ name: '', description: '', price: '', gameFile: null, coverImage: null });
+                setUploadProgress(0);
+                setIsUploading(false);
+              } catch (error) {
+                console.error("Error saving game to db.json:", error);
+                setIsUploading(false);
+              }
+            }
+          );
         }
       );
     } catch (error) {
@@ -123,6 +167,15 @@ const UploadGame = () => {
             type="file"
             onChange={handleFileChange}
             accept=".zip,.rar,.7z"
+            required
+          />
+        </div>
+        <div>
+          <label>Cover Image (JPG or PNG):</label>
+          <input
+            type="file"
+            onChange={handleCoverImageChange}
+            accept=".jpg,.jpeg,.png"
             required
           />
         </div>

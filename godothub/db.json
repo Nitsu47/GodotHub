@@ -1,0 +1,52 @@
+{
+  "games": [
+    {
+      "id": "ad6b",
+      "name": "Brotato",
+      "description": "Brotato is a shooting roguelite in which you will move up and down the stage. Play as a potato with 6 simultaneous weapons to face the aliens. Choose from a variety of features and items to create unique combinations and survive until reinforcements arrive.",
+      "price": 2.99,
+      "gameFileURL": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/games%2FBrotatoDemo.zip?alt=media&token=00eeb01b-1b4f-4099-bb5b-3953c50b44be",
+      "coverImageUrl": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/coverImages%2Fbrotato.jpg?alt=media&token=3f280e32-d423-46a6-8bdd-ad6efdee2d7d"
+    },
+    {
+      "id": "b437",
+      "name": "Halls of Torment",
+      "description": "Annihilate hordes of monsters in this survival roguelite. Descend into the Halls of Torment, where the lords of the underworld await you. Find treasures, magical artifacts, and an entire cast of characters with the power to defeat the aberrations from beyond. How long will you last?",
+      "price": 6.66,
+      "gameFileURL": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/games%2FBrotatoDemo.zip?alt=media&token=e57027f5-eea1-4ce8-a484-35d051f6867b",
+      "coverImageUrl": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/coverImages%2Fhalls_of_torment.jpg?alt=media&token=78921b25-b6b3-4ae7-920c-7eeebfeb0292"
+    },
+    {
+      "id": "0843",
+      "name": "Endoparasitic",
+      "description": "Three limbs ripped off, infected with a deadly parasite, you must save your research. Drag yourself through the corridors of a secret research lab on a remote asteroid, fight off horribly mutated monsters, inject countless syringes of vaccines, and survive at all costs.",
+      "price": 7.49,
+      "gameFileURL": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/games%2FBrotatoDemo.zip?alt=media&token=694547ab-f5e1-411d-bc3e-97e2549110c2",
+      "coverImageUrl": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/coverImages%2Fendoparasitic.jpg?alt=media&token=9f12c8bb-41bb-430a-8760-5cf57bc1d68c"
+    },
+    {
+      "id": "e16a",
+      "name": "BLASTRONAUT",
+      "description": "BLASTRONAUT is a mining game in a procedural alien world. Explore, extract and profit.",
+      "price": 18.99,
+      "gameFileURL": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/games%2FBrotatoDemo.zip?alt=media&token=2bbb6d8a-496e-4b1f-90a1-99feb3e724ba",
+      "coverImageUrl": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/coverImages%2Fblastronaut.jpg?alt=media&token=ae346da6-f148-4f6d-9ede-d6da53259c9c"
+    },
+    {
+      "id": "b4ff",
+      "name": "Cassette Beasts",
+      "description": "Collect awesome monsters and use them in turn-based combat in this open-world RPG, now with multiplayer. Combine any two monsters with Cassette Beasts' fusion system to create powerful new beings!",
+      "price": 19.99,
+      "gameFileURL": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/games%2FBrotatoDemo.zip?alt=media&token=6eb83cd2-a1ff-4ded-8d37-0548143526af",
+      "coverImageUrl": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/coverImages%2Fcassette_beasts.jpg?alt=media&token=5eec194f-6f83-4366-89f6-c057eed7c799"
+    },
+    {
+      "id": "a88d",
+      "name": "The Necromancer Cometh! TD",
+      "description": "The Necromancer Cometh! is a singleplayer survivor-like mazing tower defense game. Build huge mazes with hundreds of towers, unlock powerful upgrades, and face off against endless hordes of the undead. Will you survive when The Necromancer Cometh?",
+      "price": 5.99,
+      "gameFileURL": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/games%2FBrotatoDemo.zip?alt=media&token=db322714-4e02-4858-b642-bb0b00dca8ae",
+      "coverImageUrl": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/coverImages%2Fthe_necromancer_cometh.jpg?alt=media&token=f166ed1e-926f-4e4a-b8b8-e5842c3ae5b3"
+    }
+  ]
+}
