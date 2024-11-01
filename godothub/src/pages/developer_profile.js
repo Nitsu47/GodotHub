@@ -1,11 +1,15 @@
-import React from 'react';
-import GameCard from '../modules/game_cards';
-import SocialLinks from '../modules/social_links';
+import React from "react";
+import GameCard from "../modules/game_cards";
+import SocialLinks from "../modules/social_links";
 
 const DeveloperProfile = ({ developer }) => (
   <div className="developer-profile">
     <div className="developer-header">
-      <img src={developer.logo} alt={`${developer.name} logo`} className="developer-logo" />
+      <img
+        src={developer.logo}
+        alt={`${developer.name} logo`}
+        className="developer-logo"
+      />
       <div className="developer-info">
         <h1>{developer.name}</h1>
         <button>Follow +</button>
@@ -13,12 +17,26 @@ const DeveloperProfile = ({ developer }) => (
     </div>
 
     <div className="developer-content">
-      <aside className="developer-sidebar">
-        <div className="about-team">
-          <h3>About Our Team</h3>
-          <p>{developer.description}</p>
-          <SocialLinks links={developer.socialLinks} />
-        </div>
+      <aside className="sidebar">
+        <section className="team-info">
+          <h2>About Our Team!</h2>
+          <p>
+            We are a 4 people team that wants to create the best indie saga in
+            the world!
+          </p>
+          <div className="social-links">
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+          </div>
+        </section>
+        <section className="contact-info">
+          <p>Contact us: placeholder@gmail.com</p>
+          <p>Visit our page: www.teamcherry.com.au</p>
+          <p>Make a donation:</p>
+          <a href="#">Patreon</a>
+          <a href="#">Kickstarter</a>
+        </section>
       </aside>
 
       <main className="developer-main">
@@ -31,18 +49,32 @@ const DeveloperProfile = ({ developer }) => (
         </nav>
 
         <section className="games-list">
-          <h2>{developer.name}'s Games</h2>
-          <div className="game-cards">
-            {developer.games.map(game => (
-              <GameCard key={game.id} game={game} />
-            ))}
-          </div>
+          <section className="featured-games">
+            <GameCard
+              title="Hollow Knight"
+              price="$24.99"
+              tags="#metroidvania #2d"
+            />
+            <GameCard
+              title="Silk Song"
+              price="$24.99"
+              tags="#metroidvania #2d"
+            />
+          </section>
+          <section className="update-log">
+            <h3>Update log for v1.5.68.11808</h3>
+            <ul>
+              <li>Added "Borderless" option to fullscreen in video options</li>
+              <li>64-bit is now required...</li>
+              <li>Vulkan is now the default...</li>
+            </ul>
+          </section>
         </section>
       </main>
 
       <aside className="similar-games">
         <h3>Similar Games</h3>
-        {developer.similarGames.map(game => (
+        {developer.similarGames.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
       </aside>

@@ -1,21 +1,27 @@
 import React from "react";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import "../styles/navbar.css";
-import UploadGame from "../components/Upload_game";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src="godothub_logo.png" alt="GodotHub" />
+        <Link to="/developer">
+          <img src="godothub_logo.png" alt="GodotHub" />
+        </Link>
       </div>
       <ul className="navbar-links">
         <li>
-          <NavLink to="/" activeClassName="active">Store</NavLink>
+          <NavLink to="/" activeClassName="active">
+            Store
+          </NavLink>
         </li>
         <li>Game Jams</li>
         <li>
-          <NavLink to="/upload" activeClassName="active">Upload Game</NavLink>
+          <NavLink to="/upload" activeClassName="active">
+            Upload Game
+          </NavLink>
         </li>
       </ul>
       <div className="navbar-search">
