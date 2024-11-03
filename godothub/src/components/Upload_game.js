@@ -127,10 +127,10 @@ const UploadGame = () => {
   };
 
   return (
-    <div>
-      <h2>Upload a New Game</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="upload-game-container">
+      <h2 className="form-title">Upload a New Game</h2>
+      <form onSubmit={handleSubmit} className="upload-game-form">
+        <div className="form-group">
           <label>Game Name:</label>
           <input
             type="text"
@@ -138,18 +138,20 @@ const UploadGame = () => {
             value={gameData.name}
             onChange={handleChange}
             required
+            className="form-input"
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Description:</label>
           <textarea
             name="description"
             value={gameData.description}
             onChange={handleChange}
             required
+            className="form-textarea"
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Price:</label>
           <input
             type="number"
@@ -159,30 +161,41 @@ const UploadGame = () => {
             min="0.01"
             step="0.01"
             required
+            className="form-input"
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Game File:</label>
           <input
             type="file"
             onChange={handleFileChange}
             accept=".zip,.rar,.7z"
             required
+            className="form-file-input"
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Cover Image (JPG or PNG):</label>
           <input
             type="file"
             onChange={handleCoverImageChange}
             accept=".jpg,.jpeg,.png"
             required
+            className="form-file-input"
           />
         </div>
-        <button type="submit" disabled={isUploading}>Upload Game</button>
-        {uploadProgress > 0 && <p>Upload Progress: {uploadProgress.toFixed(2)}%</p>}
+        <button type="submit" disabled={isUploading} className="submit-button">
+          {isUploading ? "Uploading..." : "Upload Game"}
+        </button>
+        {uploadProgress > 0 && (
+          <div className="progress-bar">
+            <div
+              className="progress"
+              style={{ width: `${uploadProgress}%` }}
+            />
+          </div>
+        )}
       </form>
-      {isUploading && <p>Uploading...</p>}
     </div>
   );
 };
