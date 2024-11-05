@@ -1,94 +1,89 @@
-import React, { useState } from 'react';
-import './game_details.css';
+import React from "react";
+import Reviews from "../components/reviews";
+import "../styles/game_details.css";
 
-const GamePage = () => {
-  const [gameData, setGameData] = useState({
-    title: 'Hollow Knight',
-    description: `Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes. Explore twisting caverns, battle tainted creatures and befriend bizarre bugs, all in a classic, hand-drawn 2D style.`,
-    releaseDate: 'FEB 24, 2017',
-    developer: 'Team Cherry',
-    editor: 'Team Cherry',
-    price: 24.99,
-    reviews: [
-      {
-        quote: `"It's a deep dive into a dark place, and a brilliantly rich experience."`,
-        score: '9/10',
-        source: 'Game Informer'
-      },
-      {
-        quote: `"Truly a masterpiece of gaming if there ever was one, and certainly art worthy of being in a museum."`,
-        score: '10/10',
-        source: 'Destructoid'
-      },
-      {
-        quote: `"Best Platformer 2017 - The joy of Hollow Knight is the joy of discovery, always hard-earned, never handed to you."`,
-        score: '92/100',
-        source: 'PC Gamer'
-      }
-    ]
-  });
+const gameData = {
+  title: "Hollow Knight",
+  description: `Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes. Explore twisting caverns, battle tainted creatures and befriend bizarre bugs, all in a classic, hand-drawn 2D style.`,
+  releaseDate: "FEB 24, 2017",
+  developer: "Team Cherry",
+  editor: "Team Cherry",
+  price: 24.99,
+  logo: "hollowknight.png",
+  log: "hollow2.png",
+  agerating: "Fantacy Violence Mild Blood",
+  img: "esrb.png",
+  rating: "ESRB",
+  publisher: "Team Cherry",
+  Franchise: "Hollow Knight",
+  reviews: [
+    {
+      user: "Alice",
+      comment: "Amazing game, loved every moment!",
+      rating: 5,
+    },
+    { user: "Bob", comment: "Great art style and gameplay!", rating: 4 },
+    {
+      user: "Charlie",
+      comment: "Found it a bit challenging, but enjoyable.",
+      rating: 4,
+    },
+  ],
+};
 
-  const updatePrice = (newPrice) => {
-    setGameData({ ...gameData, price: newPrice });
-  };
-
+const GameIn = ({ users }) => {
   return (
-    <div className="game-page">
-      <header>
-        <div className="game-logo">
-          <img src="path/to/logo.png" alt="Godot Hub Logo" />
+    <div className="body">
+      <div className="header">
+        <div className="title-img">
+          <h1 className="game-name">{gameData.title}</h1>
+          <img src={gameData.logo} className="game-logo" />
         </div>
-        <nav>
-          <a href="#store">Store</a>
-          <a href="#game-jams">Game Jams</a>
-          <a href="#upload">Upload Game</a>
-          <input type="text" placeholder="Search" />
-          <button>Sign In</button>
-          <button>Register</button>
-        </nav>
-      </header>
-      
-      <main>
-        <section className="game-details">
-          <img src="path/to/hollow-knight-cover.jpg" alt="Hollow Knight" className="game-cover" />
-          <div className="game-description">
-            <h1>{gameData.title}</h1>
+        <aside className="aside">
+          <section className="game-review">
+            <img src={gameData.log} className="game-r" />
+          </section>
+          <section className="game-description">
             <p>{gameData.description}</p>
-            <p><strong>Release date:</strong> {gameData.releaseDate}</p>
-            <p><strong>Developer:</strong> {gameData.developer}</p>
-            <p><strong>Editor:</strong> {gameData.editor}</p>
-            <button className="buy-now">BUY NOW</button>
-            <p className="price">${gameData.price}</p>
+          </section>
+          <div className="game-info">
+            <ul className="ul">
+              <li>Release Date: {gameData.releaseDate}</li>
+              <li>Developer: {gameData.developer}</li>
+              <li>Editor: {gameData.editor}</li>
+              <li>Price: ${gameData.price}</li>
+            </ul>
           </div>
-        </section>
+          <a href={gameData.logo} download={gameData.title}>
+            <button className="buy-now">Buy Now - ${gameData.price}</button>
+          </a>
+        </aside>
+      </div>
+      <div className="agereating">
+        <div className="agereating-a">
+          <img src={gameData.img} className="reating" />
+          <p>{gameData.agerating}</p>
+        </div>
+        <div className="game-details">
+          <p>Title: {gameData.title}</p>
+          <p>Release Date: {gameData.releaseDate}</p>
+          <p>Developer: {gameData.developer}</p>
+          <p>Publisher: {gameData.publisher}</p>
+          <p>Franchise: {gameData.franchise}</p>
+          <p>Editor: {gameData.editor}</p>
+          <p>Price: ${gameData.price}</p>
+        </div>
+      </div>
 
-        <section className="reviews">
-          <h2>Reviews</h2>
-          {gameData.reviews.map((review, index) => (
-            <div key={index} className="review">
-              <blockquote>{review.quote}</blockquote>
-              <p><strong>{review.score}</strong> - {review.source}</p>
-            </div>
-          ))}
-        </section>
-      </main>
-      
-      <footer>
-        <div className="rating-info">
-          <p><strong>Fantasy Violence</strong></p>
-          <p><strong>Mild Blood</strong></p>
-          <p><strong>Age rating for ESRB</strong></p>
-        </div>
-        <div className="game-info">
-          <p><strong>Title:</strong> {gameData.title}</p>
-          <p><strong>Genre:</strong> Action, Adventure, Indie</p>
-          <p><strong>Developer:</strong> {gameData.developer}</p>
-          <p><strong>Franchise:</strong> Hollow Knight</p>
-          <p><strong>Release date:</strong> {gameData.releaseDate}</p>
-        </div>
-      </footer>
+      <section className="reviews">
+        <p>Reviews</p>
+        <p>
+          {" "}
+          <Reviews users={users} />
+        </p>
+      </section>
     </div>
   );
 };
 
-export default GamePage;
+export default GameIn;

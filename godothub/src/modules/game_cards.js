@@ -1,7 +1,7 @@
-import React from 'react';
-import '../styles/game_cards.css';
+import React from "react";
+import "../styles/game_cards.css";
 
-const GameCards = ({ games, developer }) => {
+const GameCards = ({ games = [], developer }) => {
   return (
     <div className="games-grid">
       {games.map((game) => (
@@ -11,7 +11,11 @@ const GameCards = ({ games, developer }) => {
           </div>
           {game.developer && developer && (
             <div className="developer-info">
-              <img src={developer.avatarURL} alt="Developer Avatar" className="developer-avatar" />
+              <img
+                src={developer.avatarURL}
+                alt="Developer Avatar"
+                className="developer-avatar"
+              />
               <span className="developer-name">{developer.name}</span>
             </div>
           )}

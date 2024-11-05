@@ -1,7 +1,6 @@
-import React from 'react';
-import GameCards from '../modules/game_cards';
-import '../styles/store.css';
-
+import React from "react";
+import GameCards from "../modules/game_cards";
+import "../styles/store.css";
 
 function Store({ games, developer }) {
   return (

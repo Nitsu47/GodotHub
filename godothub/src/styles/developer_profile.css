@@ -1,54 +1,66 @@
 .developer-profile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-  
-.developer-header {
-  display: flex;
-  align-items: center;
+  background-color: #1b1b1b;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
 }
 
 .developer-logo {
-  width: 80px;
-  height: 80px;
-  margin-right: 20px;
+  width: 2250px;
+  height: 200px;
+}
+
+.developer-info {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+.developer-header {
 }
 
 .developer-content {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
 
-.developer-sidebar, .similar-games {
-  width: 250px;
+.sidebar {
+  background-color: #333;
+  padding: 20px;
+  width: 300px;
 }
 
-.developer-main {
-  flex: 1;
-}
-
-.profile-nav ul {
-  display: flex;
-  list-style: none;
-}
-
-.profile-nav li {
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.game-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+.team-info {
 }
 
 .social-links {
-  list-style: none;
-  padding: 0;
 }
 
-.social-links li {
-  margin-bottom: 10px;
+.contact-info {
+}
+
+.profile-nav {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.developer-main {
+}
+
+.game-list {
+}
+
+.featured-games {
+}
+
+.update-log {
+  list-style-type: none;
+}
+
+.similar-games {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 5px;
 }

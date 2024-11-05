@@ -1,182 +1,152 @@
 /* Estilo general */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #1e1e1e;
-    color: #e0e0e0;
-  }
-  
-  .game-page {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Estilos del encabezado */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    border-bottom: 2px solid #333;
-  }
-  
-  .game-logo img {
-    width: 150px;
-  }
-  
-  nav {
-    display: flex;
-    align-items: center;
-  }
-  
-  nav a {
-    color: #e0e0e0;
-    text-decoration: none;
-    margin-right: 20px;
-  }
-  
-  nav a:hover {
-    color: #00aaff;
-  }
-  
-  input[type="text"] {
-    padding: 8px;
-    margin-right: 10px;
-    border: 2px solid #333;
-    background-color: #2c2c2c;
-    color: #e0e0e0;
-    border-radius: 4px;
-  }
-  
-  button {
-    background-color: #333;
-    color: #e0e0e0;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    margin-left: 10px;
-  }
-  
-  button:hover {
-    background-color: #555;
-  }
-  
-  /* Sección de detalles del juego */
+.body {
+  font-family: "Arial", sans-serif;
+  padding: 100px;
+  padding-left: 600px;
+  padding-right: 300px;
+  background-color: #2c2c2c;
+}
+.game-name {
+  padding: 15px;
+}
+.game-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos del encabezado */
+.header {
+  display: flex;
+  border-bottom: 2px solid #333;
+}
+
+.game-logo {
+  width: 450px;
+  height: 700px;
+  display: flex;
+  align-self: center;
+}
+.agereating-a {
+  display: flex;
+}
+.agereating {
+  max-width: fit-content;
+  padding-left: 1250px;
+}
+
+.title-img {
+  text-align: center;
+  width: 450px;
+  padding: 5px;
+}
+
+/* Sección de detalles del juego */
+.game-details {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.game-description {
+  max-width: 1000px;
+  font-size: 35px;
+  padding-right: px;
+}
+
+.game-r {
+  width: 700px;
+  height: 250px;
+  position: absolute;
+  margin-top: -5%;
+  padding-left: 200px;
+}
+.aside {
+  align-items: center;
+  padding-left: 100px;
+  padding-top: 100px;
+}
+
+.ul {
+  list-style-type: none;
+}
+
+.game-description p {
+  margin-bottom: 10px;
+  padding-top: 250px;
+}
+
+.buy-now {
+  background-color: #ffa500;
+  color: #000;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+}
+
+.buy-now:hover {
+  background-color: #ff8c00;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #ffa500;
+}
+
+/* Sección de reseñas */
+.reviews {
+  margin-top: 60px;
+}
+
+.reviews h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+
+.review {
+  background-color: #2c2c2c;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border-left: 5px solid;
+}
+
+.review blockquote {
+  font-style: italic;
+  margin: 0 0 10px;
+}
+
+.reating {
+  width: 100px;
+}
+.game-info {
+  margin: 5px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .game-details {
-    display: flex;
-    margin-top: 40px;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .game-cover {
-    width: 300px;
-    height: 450px;
-    margin-right: 40px;
+    margin-bottom: 20px;
   }
-  
+
   .game-description {
-    max-width: 600px;
+    max-width: 100%;
   }
-  
-  .game-description h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-  
-  .game-description p {
-    margin-bottom: 10px;
-  }
-  
-  .buy-now {
-    background-color: #ffa500;
-    color: #000;
-    padding: 15px 30px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .buy-now:hover {
-    background-color: #ff8c00;
-  }
-  
-  .price {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 15px;
-    color: #ffa500;
-  }
-  
-  /* Sección de reseñas */
-  .reviews {
-    margin-top: 60px;
-  }
-  
-  .reviews h2 {
-    font-size: 30px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #333;
-    padding-bottom: 10px;
-  }
-  
-  .review {
-    background-color: #2c2c2c;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border-left: 5px solid
-  }
-  
-  .review blockquote {
-    font-style: italic;
-    margin: 0 0 10px;
-  }
-  
-  .review p {
-    margin: 0;
-    font-size: 14px;
-  }
-  
-  /* Sección del pie */
+
   footer {
-    margin-top: 40px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    background-color: #333;
-    color: #b0b0b0;
-    border-top: 2px solid #444;
+    flex-direction: column;
+    text-align: center;
   }
-  
-  .rating-info p, .game-info p {
-    margin: 5px 0;
-  }
-  
-  footer p strong {
-    color: #e0e0e0;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .game-details {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .game-cover {
-      margin-bottom: 20px;
-    }
-  
-    .game-description {
-      max-width: 100%;
-    }
-  
-    footer {
-      flex-direction: column;
-      text-align: center;
-    }
-  }
-  
+}

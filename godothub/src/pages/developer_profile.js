@@ -1,8 +1,8 @@
 import React from "react";
-import GameCard from "../modules/game_cards";
-import SocialLinks from "../modules/social_links";
+import GameCards from "../modules/game_cards";
+import "../styles/developer_profile.css";
 
-const DeveloperProfile = ({ developer }) => (
+const DeveloperProfile = ({ games, developer }) => (
   <div className="developer-profile">
     <div className="developer-header">
       <img
@@ -11,6 +11,7 @@ const DeveloperProfile = ({ developer }) => (
         className="developer-logo"
       />
       <div className="developer-info">
+        <img src={developer.avatar} />
         <h1>{developer.name}</h1>
         <button>Follow +</button>
       </div>
@@ -19,23 +20,25 @@ const DeveloperProfile = ({ developer }) => (
     <div className="developer-content">
       <aside className="sidebar">
         <section className="team-info">
-          <h2>About Our Team!</h2>
-          <p>
-            We are a 4 people team that wants to create the best indie saga in
-            the world!
-          </p>
-          <div className="social-links">
-            <a href="#">Twitter</a>
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-          </div>
+          <h2>About our team!</h2>
+          <h2>{developer.description}</h2>
         </section>
         <section className="contact-info">
-          <p>Contact us: placeholder@gmail.com</p>
-          <p>Visit our page: www.teamcherry.com.au</p>
-          <p>Make a donation:</p>
-          <a href="#">Patreon</a>
-          <a href="#">Kickstarter</a>
+          <div>
+            <h2>Follow us on social media!</h2>
+            <h3>TWITTER</h3>
+            <h3>INSTAGRAM</h3>
+            <h3>FACEBOOK</h3>
+          </div>
+          <div>
+            <h2>Contact us:</h2>
+          </div>
+          <div>
+            <h2>Visit our page:</h2>
+          </div>
+          <div>
+            <h2>Make a donation</h2>
+          </div>
         </section>
       </aside>
 
@@ -50,32 +53,16 @@ const DeveloperProfile = ({ developer }) => (
 
         <section className="games-list">
           <section className="featured-games">
-            <GameCard
-              title="Hollow Knight"
-              price="$24.99"
-              tags="#metroidvania #2d"
-            />
-            <GameCard
-              title="Silk Song"
-              price="$24.99"
-              tags="#metroidvania #2d"
-            />
+            <GameCards games={games} developer={developer} />
           </section>
-          <section className="update-log">
-            <h3>Update log for v1.5.68.11808</h3>
-            <ul>
-              <li>Added "Borderless" option to fullscreen in video options</li>
-              <li>64-bit is now required...</li>
-              <li>Vulkan is now the default...</li>
-            </ul>
-          </section>
+          <section className="update-log"></section>
         </section>
       </main>
 
       <aside className="similar-games">
         <h3>Similar Games</h3>
-        {developer.similarGames.map((game) => (
-          <GameCard key={game.id} game={game} />
+        {(developer.similarGames || []).map((games) => (
+          <GameCards key={games.id} game={games} />
         ))}
       </aside>
     </div>

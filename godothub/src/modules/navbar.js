@@ -1,15 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/navbar.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/developer">
+        <NavLink to="/developer" activeClassName="active">
           <img src="godothub_logo.png" alt="GodotHub" />
-        </Link>
+        </NavLink>
       </div>
       <ul className="navbar-links">
         <li>
@@ -17,7 +16,11 @@ const NavBar = () => {
             Store
           </NavLink>
         </li>
-        <li>Game Jams</li>
+        <li>
+          <NavLink to="/details" activeClassName="active">
+            Game Jams
+          </NavLink>
+        </li>{" "}
         <li>
           <NavLink to="/upload" activeClassName="active">
             Upload Game
