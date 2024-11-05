@@ -59,6 +59,42 @@
       "developerName": "Blobfish",
       "developerAvatarUrl": "avatar_placeholder.png",
       "developerProfileUrl": "/developers/PL5fQwqaShgmGUGfst5BMAU6bhn1"
+    },
+    {
+      "id": "192fb5b6e15",
+      "name": "Cassette Beasts",
+      "description": "casete beasts",
+      "price": 20,
+      "gameFileURL": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/games%2FBrotatoDemo.zip?alt=media&token=9754d837-41d9-454c-a5df-e8b779a8058e",
+      "coverImageUrl": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/coverImages%2Fcassette_beasts.jpg?alt=media&token=cf497ba8-ade9-48e3-91a8-ad743862a09f",
+      "developerId": "PL5fQwqaShgmGUGfst5BMAU6bhn1",
+      "developerName": "Blobfish",
+      "developerAvatarUrl": "avatar_placeholder.png",
+      "developerProfileUrl": "/developers/PL5fQwqaShgmGUGfst5BMAU6bhn1"
+    },
+    {
+      "id": "192fb6d9f50",
+      "name": "The Necromancer Cometh! TD",
+      "description": "wetweg",
+      "price": 55,
+      "gameFileURL": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/games%2FBrotatoDemo.zip?alt=media&token=b4306674-4343-435f-bb1c-770ba53e0d15",
+      "coverImageUrl": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/coverImages%2Fthe_necromancer_cometh.jpg?alt=media&token=bcb96967-73ba-4e8e-899e-8f175245ee64",
+      "developerId": "PL5fQwqaShgmGUGfst5BMAU6bhn1",
+      "developerName": "Blobfish",
+      "developerAvatarUrl": "avatar_placeholder.png",
+      "developerProfileUrl": "/developers/PL5fQwqaShgmGUGfst5BMAU6bhn1"
+    },
+    {
+      "id": "192fb6fccfe",
+      "name": "The Necromancer Cometh! TD",
+      "description": "asfas",
+      "price": 55,
+      "gameFileURL": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/games%2FUntitled%20(1).zip?alt=media&token=b7026b09-af5e-4851-b334-28f74d089530",
+      "coverImageUrl": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/coverImages%2Fslack%20logo.png?alt=media&token=772eb4fd-9aa5-4772-a17a-273fb454f316",
+      "developerId": "PL5fQwqaShgmGUGfst5BMAU6bhn1",
+      "developerName": "Blobfish",
+      "developerAvatarUrl": "avatar_placeholder.png",
+      "developerProfileUrl": "/developers/PL5fQwqaShgmGUGfst5BMAU6bhn1"
     }
   ]
 }
