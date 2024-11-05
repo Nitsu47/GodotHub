@@ -24,33 +24,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-@media (max-width: 1400px) { /* Big Screens */
-  .games-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 1024px) { /* Medium Screens */
-  .games-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) { /* Small Screens */
-  .games-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) { /* Small Screens */
-  .game-title {
-    font-size: 1.2rem;
-    margin: 5px 0;
-  }
-
-  .game-price-wrapper {
-    margin-top: 5px;
-    font-size: 1.2rem;
-  }
-}
