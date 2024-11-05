@@ -83,3 +83,44 @@
   width: 0%;
   transition: width 0.4s ease;
 }
+
+.login-prompt {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+.login-prompt h2 {
+  color: #333;
+}
+
+.login-prompt p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.login-prompt button {
+  padding: 10px 20px;
+  background-color: #FF9A2E;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-prompt button:hover {
+  background-color: #995C1C;
+}
+
+.login-prompt h2 {
+  font-family: 'Poppins';
+}
+
+.login-prompt p {
+  font-family: 'Poppins';
+  font-weight: bold;
+}

@@ -47,6 +47,18 @@
       "price": 5.99,
       "gameFileURL": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/games%2FBrotatoDemo.zip?alt=media&token=db322714-4e02-4858-b642-bb0b00dca8ae",
       "coverImageUrl": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/coverImages%2Fthe_necromancer_cometh.jpg?alt=media&token=f166ed1e-926f-4e4a-b8b8-e5842c3ae5b3"
+    },
+    {
+      "id": "192fb13764d",
+      "name": "Brotato",
+      "description": "potato juego",
+      "price": 4.99,
+      "gameFileURL": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/games%2FBrotatoDemo.zip?alt=media&token=002a1e71-fe7b-4a2e-adb2-ad526f9e4d34",
+      "coverImageUrl": "https://firebasestorage.googleapis.com/v0/b/godot-hub.appspot.com/o/coverImages%2Fbrotato.jpg?alt=media&token=c28dc46b-acfb-4196-8bcd-90adb306d7f7",
+      "developerId": "PL5fQwqaShgmGUGfst5BMAU6bhn1",
+      "developerName": "Blobfish",
+      "developerAvatarUrl": "avatar_placeholder.png",
+      "developerProfileUrl": "/developers/PL5fQwqaShgmGUGfst5BMAU6bhn1"
     }
   ]
 }

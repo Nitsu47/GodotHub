@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../components/auth/authContext';
 import "../styles/navbar.css";
-import UploadGame from "../components/Upload_game";
+import Auth from '../components/auth/auth';
 
 const NavBar = () => {
+  const { user, logout } = useContext(AuthContext);
+  const [showAuth, setShowAuth] = useState(false);
+  const [isRegistering, setIsRegistering] = useState(true);
+
+  const userName = user?.displayName || "User";
+
+  const handleAuthToggle = (registering) => {
+    setIsRegistering(registering);
+    setShowAuth(true);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -13,7 +25,6 @@ const NavBar = () => {
         <li>
           <NavLink to="/" activeClassName="active">Store</NavLink>
         </li>
-        <li>Game Jams</li>
         <li>
           <NavLink to="/upload" activeClassName="active">Upload Game</NavLink>
         </li>
@@ -22,12 +33,33 @@ const NavBar = () => {
         <input type="text" placeholder="Search" />
       </div>
       <div className="navbar-icons">
-        <button className="cart-icon">
-          <i className="fas fa-shopping-cart"></i>
-        </button>
-        <button className="signin-btn">Sign in</button>
-        <button className="register-btn">Register</button>
+        {user ? (
+          <div className="user-info">
+            <img
+              src={user.photoURL || "avatar_placeholder.png"}
+              alt="User Avatar"
+              className="user-avatar"
+            />
+            <span>{userName}</span>
+            <button onClick={logout} className="logout-button">Logout</button>
+          </div>
+        ) : (
+          <>
+            <button className="signin-btn" onClick={() => handleAuthToggle(false)}>
+              Sign in
+            </button>
+            <button className="register-btn" onClick={() => handleAuthToggle(true)}>
+              Register
+            </button>
+          </>
+        )}
       </div>
+
+      {showAuth && (
+        <div className="auth-modal">
+          <Auth isRegistering={isRegistering} onClose={() => setShowAuth(false)} />
+        </div>
+      )}
     </nav>
   );
 };
