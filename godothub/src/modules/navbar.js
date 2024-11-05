@@ -6,9 +6,7 @@ const NavBar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <NavLink to="/developer" activeClassName="active">
-          <img src="godothub_logo.png" alt="GodotHub" />
-        </NavLink>
+        <img src="godothub_logo.png" alt="GodotHub" />
       </div>
       <ul className="navbar-links">
         <li>
